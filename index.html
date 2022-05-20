@@ -5,12 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./assets/css/main.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
     <title>DashBoard</title>
   </head>
   <body class="bg-gray-200">
     <div class="flex">
       <!-- Side navbar -->
-      <div class="bg-indigo-900 w-64">
+      <div class="bg-indigo-900 w-64 h-screen">
         <div
           class="uppercase text-gray-200 p-5 text-xl font-bold bg-indigo-700"
         >
@@ -85,8 +86,288 @@
       <!-- Side navbar -->
 
       <!-- Main Area -->
-      <div>Main Content Area</div>
-      <!-- Main Area-->
+      <div class="flex-1">
+        <!-- top navbar -->
+        <div>
+          <div class="bg-white px-2 py-0.5 h-18 flex">
+            <div class="left flex items-center p-3 w-1/3 md:w-3/4">
+              <div class="w-10 h-10">
+                <img
+                  class="object-contain"
+                  src="./assets/img/person.png"
+                  alt=""
+                />
+              </div>
+              <span class="block p-2">Sinh Fu San</span>
+            </div>
+            <div class="right flex w-2/3 md:w-1/4">
+              <div class="h-7 w-7 mx-2 my-4">
+                <img
+                  class="object-contain bg-gray-100 rounded-full p-1"
+                  src="./assets/img/search.png"
+                  alt=""
+                />
+              </div>
+              <div class="h-7 w-7 mx-2 my-4">
+                <img
+                  class="object-contain bg-gray-100 rounded-full p-1"
+                  src="./assets/img/message.png"
+                  alt=""
+                />
+              </div>
+              <div class="h-7 w-7 mx-2 my-4">
+                <img
+                  class="object-contain bg-gray-100 rounded-full p-1"
+                  src="./assets/img/warning.png"
+                  alt=""
+                />
+              </div>
+              <a class="mt-4 mx-2 text-indigo-500" href="">Logout</a>
+            </div>
+          </div>
+        </div>
+        <!-- site Banner -->
+        <div class="bg-indigo-300 m-7 p-6">
+          <div class="text-4xl text-gray-800 font-medium">
+            Good Morning, Sinh. 👋
+          </div>
+          <div class="mt-4">
+            These are the statistics for today, have a good day!
+          </div>
+        </div>
+        <!-- site Banner -->
+
+        <div class="class-container flex m-7 space-x-6">
+          <div class="card w-1/2 bg-white p-4">
+            <div class="h-10 w-10">
+              <img
+                class="object-contain"
+                src="./assets/img/wallet.png"
+                alt=""
+              />
+            </div>
+            <div class="text-xl font-bold text-gray-700">Super Plus</div>
+            <div class="uppercase mt-3 mb-3 font-bold text-gray-400 text-sm">
+              Sales
+            </div>
+            <span class="font-bold text-3xl">$25,647</span>
+            <span
+              class="bg-green-500 rounded-full p-1 text-white text-sm font-bold align-text-top"
+              >+58%</span
+            >
+            <canvas id="chart1"></canvas>
+          </div>
+          <div class="card w-1/2 bg-white p-4">
+            <div class="h-10 w-10">
+              <img
+                class="object-contain"
+                src="./assets/img/wallet.png"
+                alt=""
+              />
+            </div>
+            <div class="text-xl font-bold text-gray-700">Super Pro</div>
+            <div class="uppercase mt-3 mb-3 font-bold text-gray-400 text-sm">
+              Sales
+            </div>
+            <span class="font-bold text-3xl">$25,647</span>
+            <span
+              class="bg-red-500 rounded-full p-1 text-white text-sm font-bold align-text-top"
+              >-9%</span
+            >
+            <canvas id="chart2"></canvas>
+          </div>
+        </div>
+        <div class="class-container flex m-7 space-x-6">
+          <div class="card w-1/2 bg-white p-4">
+            <div class="h-10 w-10">
+              <img
+                class="object-contain"
+                src="./assets/img/wallet.png"
+                alt=""
+              />
+            </div>
+            <div class="text-xl font-bold text-gray-700">Super Plus</div>
+            <div class="uppercase mt-3 mb-3 font-bold text-gray-400 text-sm">
+              Sales
+            </div>
+            <span class="font-bold text-3xl">$25,647</span>
+            <span
+              class="bg-green-500 rounded-full p-1 text-white text-sm font-bold align-text-top"
+              >+58%</span
+            >
+            <canvas id="chart3"></canvas>
+          </div>
+          <div class="card w-1/2 bg-white p-4">
+            <div class="h-10 w-10">
+              <img
+                class="object-contain"
+                src="./assets/img/wallet.png"
+                alt=""
+              />
+            </div>
+            <div class="text-xl font-bold text-gray-700">Super Pro</div>
+            <div class="uppercase mt-3 mb-3 font-bold text-gray-400 text-sm">
+              Sales
+            </div>
+            <span class="font-bold text-3xl">$25,647</span>
+            <span
+              class="bg-red-500 rounded-full p-1 text-white text-sm font-bold align-text-top"
+              >-9%</span
+            >
+            <canvas id="chart4"></canvas>
+          </div>
+        </div>
+      </div>
     </div>
+    <script>
+      const ctx = document.getElementById("chart1").getContext("2d");
+      const ctx2 = document.getElementById("chart2").getContext("2d");
+      const ctx3 = document.getElementById("chart3").getContext("2d");
+      const ctx4 = document.getElementById("chart4").getContext("2d");
+      const myChart = new Chart(ctx, {
+        type: "bar",
+        data: {
+          labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
+          datasets: [
+            {
+              label: "# of Sales",
+              data: [1, 2, 3, 4, 5, 6],
+              backgroundColor: [
+                "rgba(255, 99, 132, 0.2)",
+                "rgba(54, 162, 235, 0.2)",
+                "rgba(255, 206, 86, 0.2)",
+                "rgba(75, 192, 192, 0.2)",
+                "rgba(153, 102, 255, 0.2)",
+                "rgba(255, 159, 64, 0.2)",
+              ],
+              borderColor: [
+                "rgba(255, 99, 132, 1)",
+                "rgba(54, 162, 235, 1)",
+                "rgba(255, 206, 86, 1)",
+                "rgba(75, 192, 192, 1)",
+                "rgba(153, 102, 255, 1)",
+                "rgba(255, 159, 64, 1)",
+              ],
+              borderWidth: 1,
+            },
+          ],
+        },
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true,
+            },
+          },
+        },
+      });
+      const myChart2 = new Chart(ctx2, {
+        type: "line",
+        data: {
+          labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
+          datasets: [
+            {
+              label: "# of Sales",
+              data: [11, 22, 13, 75, 105, 6],
+              backgroundColor: [
+                "rgba(255, 99, 132, 0.2)",
+                "rgba(54, 162, 235, 0.2)",
+                "rgba(255, 206, 86, 0.2)",
+                "rgba(75, 192, 192, 0.2)",
+                "rgba(153, 102, 255, 0.2)",
+                "rgba(255, 159, 64, 0.2)",
+              ],
+              borderColor: [
+                "rgba(255, 99, 132, 1)",
+                "rgba(54, 162, 235, 1)",
+                "rgba(255, 206, 86, 1)",
+                "rgba(75, 192, 192, 1)",
+                "rgba(153, 102, 255, 1)",
+                "rgba(255, 159, 64, 1)",
+              ],
+              borderWidth: 1,
+            },
+          ],
+        },
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true,
+            },
+          },
+        },
+      });
+      const myChart3 = new Chart(ctx3, {
+        type: "doughnut",
+        data: {
+          labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
+          datasets: [
+            {
+              label: "# of Sales",
+              data: [11, 22, 13, 75, 105, 6],
+              backgroundColor: [
+                "rgba(255, 99, 132, 0.2)",
+                "rgba(54, 162, 235, 0.2)",
+                "rgba(255, 206, 86, 0.2)",
+                "rgba(75, 192, 192, 0.2)",
+                "rgba(153, 102, 255, 0.2)",
+                "rgba(255, 159, 64, 0.2)",
+              ],
+              borderColor: [
+                "rgba(255, 99, 132, 1)",
+                "rgba(54, 162, 235, 1)",
+                "rgba(255, 206, 86, 1)",
+                "rgba(75, 192, 192, 1)",
+                "rgba(153, 102, 255, 1)",
+                "rgba(255, 159, 64, 1)",
+              ],
+              borderWidth: 1,
+            },
+          ],
+        },
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true,
+            },
+          },
+        },
+      });
+      const myChart4 = new Chart(ctx4, {
+        type: "radar",
+        data: {
+          labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
+          datasets: [
+            {
+              label: "# of Sales",
+              data: [11, 22, 13, 75, 105, 6],
+              backgroundColor: [
+                "rgba(255, 99, 132, 0.2)",
+                "rgba(54, 162, 235, 0.2)",
+                "rgba(255, 206, 86, 0.2)",
+                "rgba(75, 192, 192, 0.2)",
+                "rgba(153, 102, 255, 0.2)",
+                "rgba(255, 159, 64, 0.2)",
+              ],
+              borderColor: [
+                "rgba(255, 99, 132, 1)",
+                "rgba(54, 162, 235, 1)",
+                "rgba(255, 206, 86, 1)",
+                "rgba(75, 192, 192, 1)",
+                "rgba(153, 102, 255, 1)",
+                "rgba(255, 159, 64, 1)",
+              ],
+              borderWidth: 1,
+            },
+          ],
+        },
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true,
+            },
+          },
+        },
+      });
+    </script>
   </body>
 </html>
