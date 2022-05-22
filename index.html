@@ -218,6 +218,169 @@
             <canvas class="h-40 w-40" id="chart4"></canvas>
           </div>
         </div>
+
+        <div class="class-container flex m-7 space-x-6">
+          <div class="left bg-white w-1/3 p-4 divide-y divide-gray-200">
+            <div class="font-bold text-lg pb-4">Top Countries</div>
+            <canvas class="pt-4" id="chart5"></canvas>
+          </div>
+          <div class="right bg-white w-2/3 p-4">
+            <div class="font-bold text-lg pb-4">Top Channels</div>
+            <div
+              class="flex bg-gray-100 text-gray-500 p-2 uppercase font-bold text-xs"
+            >
+              <div class="w-1/3">
+                <div>Source</div>
+              </div>
+              <div class="w-3/4 flex space-x-10">
+                <div>Visitors</div>
+                <div>Revenues</div>
+                <div>Sales</div>
+                <div>Conversion</div>
+              </div>
+            </div>
+            <div class="multi-channel-container divide-y">
+              <!-- youtube channel -->
+              <div class="single-channel py-2">
+                <div class="flex">
+                  <div class="w-1/3">
+                    <div class="image-text flex">
+                      <div>
+                        <img
+                          class="w-8 h-8"
+                          src="./assets/img/youtube.png"
+                          alt=""
+                        />
+                      </div>
+                      <div class="pl-2 pt-1">Youtube</div>
+                    </div>
+                  </div>
+                  <div class="w-3/4 flex space-x-14">
+                    <div>2.4k</div>
+                    <div class="text-green-500">$16,000</div>
+                    <div>340</div>
+                    <div class="text-blue-500">4.9%</div>
+                  </div>
+                </div>
+              </div>
+              <!-- facebook channel -->
+              <div class="single-channel py-2">
+                <div class="flex">
+                  <div class="w-1/3">
+                    <div class="image-text flex">
+                      <div>
+                        <img
+                          class="w-8 h-8"
+                          src="./assets/img/facebook.png"
+                          alt=""
+                        />
+                      </div>
+                      <div class="pl-2 pt-1">Facebook</div>
+                    </div>
+                  </div>
+                  <div class="w-3/4 flex space-x-14">
+                    <div>2.4k</div>
+                    <div class="text-green-500">$16,000</div>
+                    <div>340</div>
+                    <div class="text-blue-500">4.9%</div>
+                  </div>
+                </div>
+              </div>
+              <!-- github channel -->
+              <div class="single-channel py-2">
+                <div class="flex">
+                  <div class="w-1/3">
+                    <div class="image-text flex">
+                      <div>
+                        <img
+                          class="w-8 h-8"
+                          src="./assets/img/github.png"
+                          alt=""
+                        />
+                      </div>
+                      <div class="pl-2 pt-1">Github</div>
+                    </div>
+                  </div>
+                  <div class="w-3/4 flex space-x-14">
+                    <div>2.4k</div>
+                    <div class="text-green-500">$16,000</div>
+                    <div>340</div>
+                    <div class="text-blue-500">4.9%</div>
+                  </div>
+                </div>
+              </div>
+              <!-- Instagram Channel -->
+              <div class="single-channel py-2">
+                <div class="flex">
+                  <div class="w-1/3">
+                    <div class="image-text flex">
+                      <div>
+                        <img
+                          class="w-8 h-8"
+                          src="./assets/img/instagram.png"
+                          alt=""
+                        />
+                      </div>
+                      <div class="pl-2 pt-1">Instagram</div>
+                    </div>
+                  </div>
+                  <div class="w-3/4 flex space-x-14">
+                    <div>2.4k</div>
+                    <div class="text-green-500">$16,000</div>
+                    <div>340</div>
+                    <div class="text-blue-500">4.9%</div>
+                  </div>
+                </div>
+              </div>
+              <!-- facebook Channel replicate -->
+              <div class="single-channel py-2">
+                <div class="flex">
+                  <div class="w-1/3">
+                    <div class="image-text flex">
+                      <div>
+                        <img
+                          class="w-8 h-8"
+                          src="./assets/img/facebook.png"
+                          alt=""
+                        />
+                      </div>
+                      <div class="pl-2 pt-1">Facebook</div>
+                    </div>
+                  </div>
+                  <div class="w-3/4 flex space-x-14">
+                    <div>2.4k</div>
+                    <div class="text-green-500">$16,000</div>
+                    <div>340</div>
+                    <div class="text-blue-500">4.9%</div>
+                  </div>
+                </div>
+              </div>
+              <!-- youtube channel -->
+              <div class="single-channel py-2">
+                <div class="flex">
+                  <div class="w-1/3">
+                    <div class="image-text flex">
+                      <div>
+                        <img
+                          class="w-8 h-8"
+                          src="./assets/img/youtube.png"
+                          alt=""
+                        />
+                      </div>
+                      <div class="pl-2 pt-1">Youtube</div>
+                    </div>
+                  </div>
+                  <div class="w-3/4 flex space-x-14">
+                    <div>2.4k</div>
+                    <div class="text-green-500">$16,000</div>
+                    <div>340</div>
+                    <div class="text-blue-500">4.9%</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
     <script>
@@ -225,6 +388,7 @@
       const ctx2 = document.getElementById("chart2").getContext("2d");
       const ctx3 = document.getElementById("chart3").getContext("2d");
       const ctx4 = document.getElementById("chart4").getContext("2d");
+      const ctx5 = document.getElementById("chart5").getContext("2d");
       const myChart = new Chart(ctx, {
         type: "bar",
         data: {
@@ -367,6 +531,38 @@
               beginAtZero: true,
             },
           },
+        },
+      });
+      const myChart5 = new Chart(ctx5, {
+        type: "doughnut",
+        data: {
+          labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
+          datasets: [
+            {
+              label: "# of Sales",
+              data: [1, 2, 3, 4, 5, 6],
+              backgroundColor: [
+                "rgba(255, 99, 132, 0.2)",
+                "rgba(54, 162, 235, 0.2)",
+                "rgba(255, 206, 86, 0.2)",
+                "rgba(75, 192, 192, 0.2)",
+                "rgba(153, 102, 255, 0.2)",
+                "rgba(255, 159, 64, 0.2)",
+              ],
+              borderColor: [
+                "rgba(255, 99, 132, 1)",
+                "rgba(54, 162, 235, 1)",
+                "rgba(255, 206, 86, 1)",
+                "rgba(75, 192, 192, 1)",
+                "rgba(153, 102, 255, 1)",
+                "rgba(255, 159, 64, 1)",
+              ],
+              borderWidth: 1,
+            },
+          ],
+        },
+        options: {
+          scales: {},
         },
       });
     </script>
